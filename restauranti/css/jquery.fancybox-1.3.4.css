@@ -1,0 +1,94 @@
+
+#fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1100;
+}
+
+#fancybox-tmp {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: auto;
+	display: none;
+}
+
+#fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1101;
+	outline: none;
+	display: none;
+}
+
+#fancybox-outer {
+	position: relative;
+	width: 100%;
+	background:#fff;
+}
+#fancybox-content {
+	width: 0;
+	height: 0;
+	padding: 0;
+	outline: none;
+	position: relative;
+	overflow: hidden;
+	z-index: 1102;
+	background:#fff; display:inline-block; padding:3px; border:#d7d7d7 1px solid !important;
+}
+
+#fancybox-title {
+	z-index: 1102;
+}
+.fancybox-title-over {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* IE6, IE7, IE8 */
+
+.fancybox-ie .fancybox-bg { background: transparent !important; }
+
+#fancybox-close {
+    background: url(../images/close.jpg) 0 0 no-repeat transparent !important;
+    cursor: pointer;
+    display: none;
+    height: 37px;
+    position: absolute;
+    right: -4px;
+    top:4px;
+    width: 37px;
+    z-index: 1103;
+}
+#fancybox-left {
+    background: url(../images/gallery-prev.jpg) 0 0 no-repeat;
+    top: 50%;
+	left:4px;
+	margin-top:-17px;
+    cursor: pointer;
+    display: none;
+    height: 34px;
+    outline: medium none;
+    position: absolute;
+    width: 34px;
+    z-index: 1102;
+}
+#fancybox-right {
+    background: url(../images/gallery-next.jpg) 0 0 no-repeat;
+    top: 50%;
+	right:-4px;
+	margin-top:-17px;
+    cursor: pointer;
+    display: none;
+    height: 34px;
+    outline: medium none;
+    position: absolute;
+    width: 34px;
+    z-index: 1102;
+}
+#fancybox-right:hover, #fancybox-left:hover {background-position:0 bottom;}
+a.plus {display:block; margin-bottom:10px; background:#fff; padding:3px; border:#d7d7d7 1px solid !important;}
