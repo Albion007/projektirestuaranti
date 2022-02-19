@@ -14,7 +14,7 @@
 	else
 	{
 		echo "Problem gjate konfirmimit te klientit";
-		header("Refresh:20; url=a_konfirmimi.php");
+		header("Refresh:3; url=a_konfirmimi.php");
 	}
 	
 ?>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Administratori</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.7.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
+	<title>Administratori</title>
+	<link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
          <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -15,103 +17,106 @@
         </a>
       </div>
     <![endif]-->
-    <!--[if lt IE 9]>
+	<!--[if lt IE 9]>
    		<script type="text/javascript" src="js/html5.js"></script>
     	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
 	<![endif]-->
-	
+
 </head>
+
 <body>
-<div class="bg-top">
-<div class="bgr">
-  <!--==============================header=================================-->
-    <header>
-		<div class="kycja"><p style='float: right; clear: right;'><a href="index.php" >Dilni</a></p></div>
-        <h1><a href="index.php"><img src="images/logo.jpg" alt=""></a></h1>	
-	
-        <nav>  
-		
-            <ul class="menu">
+	<div class="bg-top">
+		<div class="bgr">
+			<!--==============================header=================================-->
+			<header>
+				<div class="kycja">
+					<p style='float: right; clear: right;'><a href="index.php">çkyçu</a></p>
+				</div>
+				<h1><a href="index.php"><img src="images/logo.jpg" alt=""></a></h1>
+
+				<nav>
+
+					<ul class="menu">
+
+
+						<li class="current"><a href="rezervimet.php">Rezervimet</a></li>
+						<li><a href="a_menu.php">Menu</a></li>
+						<li><a href="a_konfirmimi.php">Konfirmimi</a></li>
+						<li><a href="a_komenti.php">Komentet</a></li>
+
+					</ul>
+					<div class="clear"></div>
+				</nav>
+			</header>
+
+
+			<?php
+			session_start();
+			if (isset($_SESSION['username'])) {
+				print " Mireserdhet:<font  size=7> " . $_SESSION['username'] . "</font>";
+			}
+
+			?>
+
+			<?php
+
+			require "login.php";
+			echo '<center><table class="tableCSS"></center>' . "\n";
 			
-                
-				<li class="current"><a href="rezervimet.php">Rezervimet</a></li>
-				<li ><a href="a_menu.php">Menu</a></li>
-				<li ><a href="a_konfirmimi.php">Konfirmimi</a></li>
-				<li ><a href="a_komenti.php">Komentet</a></li>
+			$result = mysqli_query($db,"SELECT * FROM rezervimi");
+			echo '<thead>';
+			echo '<th>Rezervimi ID</th><th>Data Rezervimit</th><th>Data eventit</th><th>Fillimi</th><th>Kohezgjatja</th><th>Nr uleseve</th><th>Lloji i menuse</th><th>Klienti</th><th>Zgjedh</th>';
+
+			$i = 0;
+			while ($row = mysqli_fetch_row($result)) {
+
+				if ($i % 2 != 1)
+					$rowColor = "lightgrey";
+				else
+					$rowColor = "white";
+				$i++;
+				echo "<tbody>";
+
+				echo "<tr bgcolor=" . $rowColor . "><td>";
 				
-            </ul>
-            <div class="clear"></div>
-         </nav>
-    </header>  
-	
+				echo (htmlentities($row[0]));
+				echo ("</td><td>");
 
-	
-<?php 
-session_start();
-if(isset($_SESSION['username']))
-{
- print " Mireserdhet :<font  size=6> ".$_SESSION['username']. "</font>";
- 
-}
+				echo (htmlentities($row[1]));
+				echo ("</td><td>");
 
-?>
+				echo (htmlentities($row[2]));
+				echo ("</td><td>");
+
+				echo (htmlentities($row[3]));
+				echo ("</td><td>");
+
+				echo (htmlentities($row[4]));
+				echo ("</td><td>");
+
+				echo (htmlentities($row[5]));
+				echo ("</td><td>");
+
+				echo (htmlentities($row[6]));
+				echo ("</td><td>");
+				
+				echo (htmlentities($row[7]));
+				echo ("</td><td>\n");
+
+				echo ('<a href="admin_edit.php?rez_id=' . htmlentities($row[0]) . '">Edit</a>  ');
+				echo ('<a href="deleteRezervimi.php?rez_id=' . htmlentities($row[0]) . '">Delete</a>  ');
+
+				echo ("</td></tr>\n");
+			}
+			?>
 
 
-<?php
-	require "login.php";
-	
-	
-	
-
-		echo '<center><table class="tableCSS"></center>'."\n";
-		$result = mysqli_query($db,"SELECT * FROM rezervimi");
-		echo '<thead>';
-		echo '<th>Rezervimi ID</th><th>Data Rezervimit</th><th>Data eventit</th><th>Fillimi</th><th>Kohezgjatja</th><th>Nr uleseve</th><th>Lloji i menuse</th><th>Klienti</th><th>Zgjedh</th>';
-
-
-		$i=0;
-		while ( $row = mysqli_fetch_row($result) ) {
-
-		if ($i % 2 != 1) 
-			$rowColor = "lightgrey"; 
-		else 
-			$rowColor = "white"; 
-			$i++;
-		echo "<tbody>";
-
-		echo "<tr bgcolor=" . $rowColor . "><td>";
-		echo(htmlentities($row[0]));
-		echo("</td><td>");
-
-		echo(htmlentities($row[1]));
-		echo("</td><td>");
-		echo(htmlentities($row[2]));
-		echo("</td><td>");
-		echo(htmlentities($row[3]));
-		echo("</td><td>");
-		echo(htmlentities($row[4]));
-		echo("</td><td>");
-		echo(htmlentities($row[5]));
-		echo("</td><td>");
-		echo(htmlentities($row[6]));
-		echo("</td><td>");
-		echo(htmlentities($row[7]));
-		echo("</td><td>\n");
-		
-		
-		echo('<a href="admin_edit.php?rez_id='.htmlentities($row[0]).'">Edit</a>  ');
-		echo('<a href="deleteRezervimi.php?rez_id='.htmlentities($row[0]).'">Delete</a>  ');
-
-		echo("</td></tr>\n");
-		
-	}
-?>
-
- 
-    </div> 
-</div>  
- </br><footer>
-      <p></p> </br>
-  </footer>	 
+		</div>
+	</div>
+	</br>
+	<footer>
+		<p></p> </br>
+	</footer>
 </body>
+
 </html>

@@ -2,9 +2,6 @@
 	//session_start();
 	include("connection.php");
 	
-	
-	
-
 
 	function deleteRezervimi($rez_id)
 	{
@@ -43,9 +40,6 @@
 	}
 
 	
-
-
-
 	function akonfirmoKlient($klienti_id)
 	{
 		global $db;
@@ -56,7 +50,19 @@
 
 	function deleteKlienti($klienti_id)
 	{
-		$allowUser = mysqli_query($klienti_id,"DELETE FROM klienti WHERE klienti_id = '$klienti_id' ");
-		header("Location: a_konfirmimi.php");
+		$klienti_id = (int)$klienti_id;
+		global $db;
+		$del = mysqli_query($db,"DELETE FROM klienti where klienti_id = '$klienti_id'") ;
+		if(!$del)
+		{
+			echo "Gabim ne fshirje ";
+			header("Refresh:3; url=a_konfirmimi.php");
+		}	
+		else
+		{
+			echo "Klienti u fshi me sukses";
+			header("Refresh:3; url=a_konfirmimi.php");
+		}
+			return $del;
 	}
 ?>

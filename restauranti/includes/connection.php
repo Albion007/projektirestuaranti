@@ -1,4 +1,3 @@
 <?php
-
 	require "login.php";
 ?>

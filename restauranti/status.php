@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Administratori</title>
+    <link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
@@ -26,7 +27,7 @@
 <div class="bgr">
   <!--==============================header=================================-->
     <header>
-		<div class="kycja"><p style='float: right; clear: right;'><a href="index.php" >Dilni</a></p></div>
+		<div class="kyqja"><p style='float: right; clear: right;'><a href="index.php" >çkyqu</a></p></div>
         <h1><a href="index.php"><img src="images/logo.jpg" alt=""></a></h1>	
 	
         <nav>  
@@ -40,6 +41,6 @@
             <div class="clear"></div>
          </nav>
     </header>  
-    <h2 align ="center" style="color:gray">Rezervimi u krye me Sukses!</h2>
+    <h2 style="color:gray; text-align: center;">Rezervimi u krye me Sukses!</h2>
 </body>
 </html>

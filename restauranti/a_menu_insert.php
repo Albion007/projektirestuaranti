@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Shtimi i nje menu te re</title>
+	<link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
@@ -51,17 +52,21 @@
 							
 							
 							
-							$sql = "INSERT INTO menu VALUES (NULL,'$m')"or die(mysqli_error());
+							$sql = "INSERT INTO menu VALUES (NULL,'$m')"or die(mysqli_error($guest['Diçqka ka shkuar gabim!']));
 							$result=mysqli_query($db,$sql);
 							
 							if($result){
-								echo '<center><img src="css/images/ok.jpg" alt="" width="200" height="200" /></center>';								
+								echo '<center><img src="./images/ok.png" alt="" width="200" height="200" /></center>';								
 								echo "<center>Ne rregull</center>";
+								echo "<center>Ju lutem prisni!.</center>";
+								header("Refresh:3; url=a_menu.php");
 										}
 
 							else {
-								echo '<center><img src="css/images/error.png" alt="" width="200" height="200" /></center>';
+								echo '<center><img src="./images/error.png" alt="" width="200" height="200" /></center>';
 								echo "<center>Gabim</center>";
+								echo "<center>Ju lutem prisni!.</center>";
+								header("Refresh:3; url=a_menu.php");
 									}
 							}
 						?>
@@ -69,10 +74,10 @@
 						 <div class="col-4 left-2">
 						 
 						 <h3 class="h3-line">Shto menu:</h3>
-						<form id="form" method="post" />
+						<form id="form" method="post">
 							<label><strong>Emri:</strong><input name="menu_lloji"  type="text" value=""><strong class="clear"></strong></label>
 		
-						<div class="btns"><input type="submit" value="Shto" /><a href="a_menu.php" class="link" >Anulo</a></br></div>
+						<div class="btns"><input type="submit" value="Shto" /><a href="a_menu.php" class="link" >Kthehu</a></br></div>
 						
 						</div>
 					</form>
@@ -82,7 +87,7 @@
 <!--==============================footer=================================-->
  
   </br><footer>
-      <p>� 2012  Valencia</p> </br>
+      <p>© 2021  Valencia</p> </br>
   </footer>	
   </div> 
 </div>       

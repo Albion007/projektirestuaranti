@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Datat e rezervuara</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.7.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
+	<title>Datat e rezervuara</title>
+	<link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
          <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -15,69 +17,80 @@
         </a>
       </div>
     <![endif]-->
-    <!--[if lt IE 9]>
+	<!--[if lt IE 9]>
    		<script type="text/javascript" src="js/html5.js"></script>
     	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
 	<![endif]-->
-	
+
 </head>
+
 <body>
-<div class="bg-top">
-<div class="bgr">
-  <!--==============================header=================================-->
-    <header>
-		<div><p style='float: right; clear: right;'><a href="index.php" >Dilni</a></p></div>
-        <h1><a href="index.php"><img src="images/logo.jpg" alt=""></a></h1>	
-	
-        <nav> 
-		    <ul class="menu">
-				<li class="current"><a href="k_lista_rezervimeve.php">Lista e rezervimeve</a></li>
-		     </ul>
-            <div class="clear"></div>
-         </nav>
-    </header>  
+	<div class="bg-top">
+		<div class="bgr">
+			<!--==============================header=================================-->
+			<header>
+				<div>
+					<p style='float: right; clear: right;'><a href="index.php">çkyçu</a></p>
+				</div>
+				<h1><a href="index.php"><img src="images/logo.jpg" alt=""></a></h1>
+
+				<nav>
+					<ul class="menu">
+
+						<li><a href="k_rezervimet.php">Rezervoni</a></li>
+						<li class="current"><a href="k_lista_rezervimeve.php">Lista e rezervimeve</a></li>
+
+					</ul>
+					<div class="clear"></div>
+				</nav>
+			</header>
 
 
 
-<?php
-	require "login.php";
-		echo '<center><table class="tableCSS"></center>'."\n";
-		$result = mysqli_query($db,"SELECT rez_dataEventit,rez_fillimiEventit,rez_kohezgjatja FROM rezervimi");
-		echo '<thead>';
-		echo '<th>Data e eventiti</th><th>Fillimi</th><th>Kohezgjatja</th>';
+			<?php
+			require "login.php";
+			echo '<center><table class="tableCSS"></center>' . "\n";
+			$result = mysqli_query($db, "SELECT rez_dataEventit,rez_fillimiEventit,rez_kohezgjatja FROM rezervimi");
+			echo '<thead>';
+			echo '<th>Data e eventit</th><th>Fillimi</th><th>Kohezgjatja</th>';
 
 
-		$i=0;
-		while ( $row = mysqli_fetch_row($result) ) {
+			$i = 0;
+			while ($row = mysqli_fetch_row($result)) {
 
-		if ($i % 2 != 1) 
-			$rowColor = "lightgrey"; 
-		else 
-			$rowColor = "white"; 
-			$i++;
-		echo "<tbody>";
+				if ($i % 2 != 1)
+					$rowColor = "lightgrey";
+				else
+					$rowColor = "white";
+				$i++;
+				echo "<tbody>";
 
-		echo "<tr bgcolor=" . $rowColor . "><td>";
-		echo(htmlentities($row[0]));
-		echo("</td><td>");
-		echo(htmlentities($row[1]));
-		echo("</td><td>");
-		echo(htmlentities($row[2]));
-		echo("</td>\n");
-		
-		
-		
+				echo "<tr bgcolor=" . $rowColor . "><td>";
 
-		echo("</tr>\n");
-	}
-?>
+				echo (htmlentities($row[0]));
+				echo ("</td><td>");
+				
+				echo (htmlentities($row[1]));
+				echo ("</td><td>");
+				
+				echo (htmlentities($row[2]));
+				echo ("</td>\n");
 
 
 
-    </div> 
-</div>  
- </br><footer>
-      <p></p> </br>
-  </footer>	 
+
+				echo ("</tr>\n");
+			}
+			?>
+
+
+
+		</div>
+	</div>
+	</br>
+	<footer>
+		<p></p> </br>
+	</footer>
 </body>
+
 </html>

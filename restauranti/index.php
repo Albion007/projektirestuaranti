@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <title>Valencia Restaurant</title>
+
+    <link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
+
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">

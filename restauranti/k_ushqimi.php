@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ushqimi</title>
+	<link rel="shortcut icon" type="icon" href="./images/iconrestaurant.png">
     <link rel="stylesheet" href="style2.css">
     <link rel="short icon" type="image/png" href="LOGO.png">
 </head>

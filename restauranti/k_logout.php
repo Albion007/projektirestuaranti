@@ -3,6 +3,6 @@
 	
 	session_destroy();
 	
-	echo "Jeni qkyqur nga sistemi";
+	echo "Ju lutem prisni!";
 	header("Refresh:3; url=index.php");
 ?>
