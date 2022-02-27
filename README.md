@@ -1,7 +1,8 @@
 # projektirestuaranti
-This project is about a restaurant and the reservations that customers can make. It has extensive content and is quite dynamic.
 
 #Hi, I am Albion Morina!
+
+This project is about a restaurant and the reservations that customers can make. It has extensive content and is quite dynamic.
 
 This project contains many materials and has been worked step by step. 
 It is a project that starts with a content about the restaurant and then you can log in in order to make the necessary reservation in our restaurant.
